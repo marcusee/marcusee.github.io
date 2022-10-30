@@ -1,5 +1,5 @@
 <!-- ************************************************************************************************************************************************************************************* -->
-<!-- Hello! this site is made in vannilla html/js with just tailwind and font awesome. See the source code here. https://github.com/marcusee/marcusee.github.io/blob/master/index.html          -->
+<!-- Hello! this site is made in vanilla html/js with just tailwind and font awesome. See the source code here. https://github.com/marcusee/marcusee.github.io/blob/master/index.html          -->
 <!-- ************************************************************************************************************************************************************************************* -->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,8 +21,35 @@
   }
 </style>
 
+<script>
+  tailwind.config = {
+    theme: {
+      fontFamily: {
+        sans: ['Helvetica', 'Arial', 'sans-serif'],
+      },
+      extend: {
+        animation: {
+          fadeIn: "fadeIn 2s ease-in forwards",
+          fastFadeIn: "fadeIn 300ms ease-in forwards"
+
+        },
+        variants: {
+          animation: ["motion-safe"]
+        },
+        keyframes: {
+          fadeIn: {
+            "0%": { opacity: 0 },
+            "100%": { opacity: 1 }
+          }
+        }
+      }
+    }
+  }
+</script>
+
 <body>
-  <nav class="sticky top-0 z-50 bg-sky-900 shadow-lg">
+  <!-- bg-sky-900  shadow-lg-->
+  <nav class="fixed w-full top-0 z-50  bg-transparent ">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex justify-between">
         <div class="flex space-x-7">
@@ -62,14 +89,14 @@
     <!-- mobile menu -->
     <div class="hidden mobile-menu">
       <ul class="py-4">
-        <li class="active"><a href="index.html"
+        <li class="active"><a href="#about"
             class="block text-sm px-2 py-4 text-white hover:bg-white/20 transition duration-300">About</a></li>
         <li><a href="#skills"
             class="block text-sm px-2 py-4 hover:bg-white/20 text-white transition duration-300">Skills</a>
         </li>
-        <li><a href="#about"
+        <li><a href="#experience"
             class="block text-sm px-2 py-4 hover:bg-white/20 text-white transition duration-300">Experience</a></li>
-        <li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-white/20 text-white transition duration-300">Side
+        <li><a href="#side" class="block text-sm px-2 py-4 hover:bg-white/20 text-white transition duration-300">Side
             Projects</a>
         </li>
       </ul>
@@ -80,13 +107,23 @@
       class="w-full h-screen bg-fixed bg-[url('https://images.unsplash.com/photo-1657311388556-eeff862b3471')] bg-cover bg-center ">
       <div class="w-full h-screen flex justify-center items-center backdrop-opacity-30 backdrop-invert bg-sky-900/20">
         <div class="flex flex-col gap-4 justify-center items-center">
-          <img class="w-24 h-24 rounded-full" src="https://media-exp1.licdn.com/dms/image/C5103AQFy8MMMpiNTvA/profile-displayphoto-shrink_800_800/0/1548681214558?e=1669852800&v=beta&t=S4i0p7bp0coNt5ZILz8qfcHFDrNM4DvyQQTWLx-ZZ5k" alt="Rounded avatar">
+          <img class="w-24 h-24 rounded-full"
+            src="https://media-exp1.licdn.com/dms/image/C5103AQFy8MMMpiNTvA/profile-displayphoto-shrink_800_800/0/1548681214558?e=1669852800&v=beta&t=S4i0p7bp0coNt5ZILz8qfcHFDrNM4DvyQQTWLx-ZZ5k"
+            alt="Rounded avatar">
           <h1 class=" text-center text-5xl text-white font-bold drop-shadow-lg">Hi I am
             <span class="text-amber-500">Marcus Ee</span>
           </h1>
           <h4 class="text-white text-3xl">Software Engineer</h4>
-          <p class="text-center text-lg text-white">96518678 ● <a href="mailto:marcuseecl@gmail.com">
-              marcuseecl@gmail.com</a> ● Singaporean</p>
+          <div class="flex items-center gap-2">
+            <i class="fa fa-phone text-white"></i>
+            <p class="text-center text-lg text-white">96518678 </p>
+            <i class="fa fa-envelope text-white"></i>
+            <a class="text-center text-lg text-white" href="mailto:marcuseecl@gmail.com">
+              marcuseecl@gmail.com
+            </a>
+            <i class="fa fa-map-marker text-white"></i>
+            <p class="text-center text-lg text-white">Singapore</p>
+          </div>
           <a href="#about"
             class=" bg-transparent text-white font-semibold transition ease-in-out delay-150 hover:-translate-y-1  py-2 px-4 hover:scale-110 duration-300 rounded   border border-4 border-white-500">
             See More
@@ -106,7 +143,7 @@
       </div>
     </div>
     <div id='about'>
-      <div class="container p-20 mx-auto js-show-on-scroll">
+      <div class="container md:p-20 p-10 mx-auto">
         <div class="flex flex-col gap-4 flex-start mb-8">
           <h1 class="text-4xl">About Me</h1>
           <p>
@@ -137,7 +174,8 @@
           <div class="flex flex-col gap-12 items-center">
             <!-- <div class=''> -->
             <h1 class="text-4xl text-white font-bold border-b-2">SKILLS</h1>
-            <div class="grid gap-8 w-full place-content-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div
+              class="grid gap-8 w-full place-content-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 js-show-on-scroll">
               <div class='flex flex-col items-center'>
                 <i class="fa-brands fa-js fa-6x items-center " style="color:whitesmoke"></i>
                 <span class='text-white'>Javascript</span>
@@ -199,7 +237,7 @@
     <div id="experience" class="bg-white">
       <div class="container p-20 mx-auto">
         <h1 class="text-4xl my-8 text-center font-bold">Technical Journey</h1>
-        <ol class="relative border-l border-gray-200 dark:border-gray-700">
+        <ol class="relative border-l border-gray-200 dark:border-gray-700 js-show-on-scroll">
           <li class="mb-10 ml-6">
             <span
               class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
@@ -288,7 +326,7 @@
           </div>
 
           <h1 class="text-2xl font-bold">Box ninja</h1>
-          <div class="text-gray-400 text-center w-96">
+          <div class="text-gray-400 text-center w-96 px-8 md:px-2">
             This is a simple app game that uses physics and Box 2D
             <p>
 
@@ -302,7 +340,7 @@
       </div>
     </div>
     <footer class=" bg-sky-900 px-20 py-10">
-      <div class="flex justify-between">
+      <div class="flex justify-between space-x-12 md:space-x-4">
         <a href="#marcus">
           <h2 class="text-white text-2xl font-semibold hover:text-amber-500 transition duration-300">Marcus Ee</h2>
         </a>
@@ -321,7 +359,7 @@
     </footer>
   </main>
 </body>
-
+<!-- mobile menu interactions -->
 <script>
   const btn = document.querySelector("button.mobile-menu-button");
   const menu = document.querySelector(".mobile-menu");
@@ -329,6 +367,66 @@
   btn.addEventListener("click", () => {
     menu.classList.toggle("hidden");
   });
+</script>
+
+<!-- fade in animations -->
+<script defer>
+
+  // Callback for IntersectionObserver
+  const callback = function (entries) {
+    entries.forEach(entry => {
+
+      // Is the element in the viewport?
+      if (entry.isIntersecting) {
+
+        // Add the fadeIn class:
+        entry.target.classList.add("motion-safe:animate-fadeIn");
+      }
+    });
+  };
+
+  // Get all the elements you want to show on scroll
+  const targets = document.querySelectorAll(".js-show-on-scroll");
+
+  // Set up a new observer
+  const observer = new IntersectionObserver(callback);
+
+  // Loop through each of the target
+  targets.forEach(function (target) {
+    // Hide the element
+    target.classList.add("opacity-0");
+
+    // Add the element to the watcher
+    observer.observe(target);
+  });
+
+
+</script>
+
+<!-- Make the nav bar non transparent depending on y scroll -->
+<script>
+  window.onscroll = function () {
+    scrollFunction()
+  };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+      document.getElementsByTagName("nav")[0].classList.add("bg-sky-900");
+      document.getElementsByTagName("nav")[0].classList.add("shadow-lg");
+      document.getElementsByTagName("nav")[0].classList.add("motion-safe:animate-fastFadeIn");
+
+      document.getElementsByTagName("nav")[0].classList.remove("bg-transparent");
+
+    } else {
+
+      document.getElementsByTagName("nav")[0].classList.remove("bg-sky-900");
+      document.getElementsByTagName("nav")[0].classList.remove("shadow-lg");
+
+      document.getElementsByTagName("nav")[0].classList.add("bg-transparent");
+      document.getElementsByTagName("nav")[0].classList.remove("motion-safe:animate-fastFadeIn");
+
+    }
+  }
 </script>
 
 </html>
