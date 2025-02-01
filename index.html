@@ -1,12 +1,432 @@
+<!-- ************************************************************************************************************************************************************************************* -->
+<!-- Hello! this site is made in vanilla html/js with just tailwind and font awesome. See the source code here. https://github.com/marcusee/marcusee.github.io/blob/master/index.html          -->
+<!-- ************************************************************************************************************************************************************************************* -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+<script>
+  tailwind.config = {
+    theme: {
+      fontFamily: {
+        sans: ['Helvetica', 'Arial', 'sans-serif'],
+      },
+      extend: {
+        animation: {
+          fadeIn: "fadeIn 2s ease-in forwards",
+          fastFadeIn: "fadeIn 300ms ease-in forwards"
+
+        },
+        variants: {
+          animation: ["motion-safe"]
+        },
+        keyframes: {
+          fadeIn: {
+            "0%": { opacity: 0 },
+            "100%": { opacity: 1 }
+          }
+        }
+      }
+    }
+  }
+</script>
+
 <body>
-  <h1>Hello world</h1>
+  <!-- bg-sky-900  shadow-lg-->
+  <nav class="fixed w-full top-0 z-50  bg-transparent ">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between">
+        <div class="flex space-x-7">
+          <!-- Secondary Navbar items -->
+          <div class="hidden md:flex items-center space-x-3 text-white ">
+            <a href="#marcus">
+              Marcus Ee
+            </a>
+          </div>
+        </div>
+        <!-- Primary Navbar items -->
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="#about"
+            class="py-4 px-2 text-white/80 font-semibold hover:text-amber-500 transition duration-300 ">About</a>
+          <a href="#skills"
+            class="py-4 px-2 text-white/80 font-semibold hover:text-amber-500 transition duration-300">Skills</a>
+          <a href="#experience"
+            class="py-4 px-2 text-white/80 font-semibold hover:text-amber-500 transition duration-300">Experience</a>
+          <a href="#side"
+            class="py-4 px-2 text-white/80 font-semibold hover:text-amber-500 transition duration-300">Side
+            Projects
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center py-4">
+          <button class="outline-none mobile-menu-button">
+            <svg class=" w-6 h-6 text-white hover:text-amber-500 transition duration-300 " x-show="!showMenu"
+              fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- mobile menu -->
+    <div class="hidden mobile-menu">
+      <ul class="py-4">
+        <li class="active"><a href="#about"
+            class="block text-sm px-2 py-4 text-white hover:bg-white/20 transition duration-300">About</a></li>
+        <li><a href="#skills"
+            class="block text-sm px-2 py-4 hover:bg-white/20 text-white transition duration-300">Skills</a>
+        </li>
+        <li><a href="#experience"
+            class="block text-sm px-2 py-4 hover:bg-white/20 text-white transition duration-300">Experience</a></li>
+        <li><a href="#side" class="block text-sm px-2 py-4 hover:bg-white/20 text-white transition duration-300">Side
+            Projects</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <main class="">
+    <div id="marcus"
+      class="w-full h-screen bg-fixed bg-[url('https://images.unsplash.com/photo-1657311388556-eeff862b3471')] bg-cover bg-center ">
+      <div class="w-full h-screen flex justify-center items-center backdrop-opacity-30 backdrop-invert bg-sky-900/20">
+        <div class="flex flex-col gap-4 justify-center items-center">
+          <img class="w-24 h-24 rounded-full"
+            src="./marcus.jfif"
+            alt="Rounded avatar">
+          <h1 class=" text-center text-5xl text-white font-bold drop-shadow-lg">Hi I am
+            <span class="text-amber-500">Marcus Ee</span>
+          </h1>
+          <h4 class="text-white text-3xl">Software Engineer</h4>
+          <div class="flex items-center gap-2">
+            <i class="fa fa-phone text-white"></i>
+            <p class="text-center text-lg text-white">96518678 </p>
+            <i class="fa fa-envelope text-white"></i>
+            <a class="text-center text-lg text-white" href="mailto:marcuseecl@gmail.com">
+              marcuseecl@gmail.com
+            </a>
+            <i class="fa fa-map-marker text-white"></i>
+            <p class="text-center text-lg text-white">Singapore</p>
+          </div>
+          <a href="#about"
+            class=" bg-transparent text-white font-semibold transition ease-in-out delay-150 hover:-translate-y-1  py-2 px-4 hover:scale-110 duration-300 rounded   border border-4 border-white-500">
+            See More
+          </a>
+          <a href="#about">
+            <div
+              class="animate-bounce border-2 p-2 w-10 h-10 m-4 ring-1  dark:ring-slate-200/20 shadow-lg rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+              </svg>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+    <div id='about'>
+      <div class="container md:p-20 p-10 mx-auto">
+        <div class="flex flex-col gap-4 flex-start mb-8">
+          <h1 class="text-4xl">About Me</h1>
+          <p>
+            I'm Marcus Ee. I'm a hard-working, dedicated software engineer with a passion for building applications.
+            Interested in software engineering concepts and have the ability to pick up concepts quick. I build things
+            for
+            fun. I work well with people and I believe that Humility is the most important
+            trait for a software engineer.
+          </p>
+          <p>
+            I ❤️ Programming.
+          </p>
+          <p>
+            Let's build something together!
+          </p>
+
+        </div>
+        <a href="mailto:marcuseecl@gmail.com" class='mt-12 bg-amber-500 text-white p-2 hover:bg-amber-500/80'>
+          Contact Me
+        </a>
+      </div>
+    </div>
+
+    <div id='skills'
+      class="bg-fixed bg-[url('https://images.unsplash.com/photo-1657311388556-eeff862b3471')] bg-cover bg-center">
+      <div class=" backdrop-opacity-30 backdrop-invert bg-sky-900/80 ">
+        <div class="container p-20 mx-auto">
+          <div class="flex flex-col gap-12 items-center">
+            <!-- <div class=''> -->
+            <h1 class="text-4xl text-white font-bold border-b-2">SKILLS</h1>
+            <div
+              class="grid gap-8 w-full place-content-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 js-show-on-scroll">
+              <div class='flex flex-col items-center'>
+                <i class="fa-brands fa-js fa-6x items-center " style="color:whitesmoke"></i>
+                <span class='text-white'>Javascript</span>
+              </div>
+              <div class='flex flex-col items-center gap-4'>
+                <i class="fa-solid fa-leaf fa-6x items-center " style="color:whitesmoke"></i>
+                <span class='text-white'>Spring Boot</span>
+              </div>
+              <div class='flex flex-col items-center gap-4'>
+                <i class="fa-brands fa-git fa-6x items-center " style="color:whitesmoke"></i>
+                <span class='text-white'>Git</span>
+              </div>
+              <div class='flex flex-col items-center gap-4'>
+                <i class="fa-solid fa-dove fa-6x items-center " style="color:whitesmoke"></i>
+                <span class='text-white'>Flutter</span>
+              </div>
+              <div class='flex flex-col items-center gap-4'>
+                <i class="fa-solid fa-bullseye fa-6x items-center " style="color:whitesmoke"></i>
+                <span class='text-white'>Dart</span>
+              </div>
+              <div class='flex flex-col items-center gap-4'>
+                <i class="fa-brands fa-linux fa-6x items-center " style="color:whitesmoke"></i>
+                <span class='text-white'>Linux</span>
+              </div>
+              <div class='flex flex-col items-center gap-4'>
+                <i class="fa-brands fa-java fa-6x items-center " style="color:whitesmoke"></i>
+                <span class='text-white'>Java</span>
+              </div>
+              <div class='flex flex-col items-center gap-4'>
+                <i class="fa-brands fa-c fa-6x items-center " style="color:whitesmoke"></i>
+                <span class='text-white'>C/C++</span>
+              </div>
+
+              <div class='flex flex-col items-center gap-4'>
+                <i class="fa-solid fa-database fa-6x items-center " style="color:whitesmoke"></i>
+                <span class='text-white'>SQL</span>
+              </div>
+
+              <div class='flex flex-col items-center gap-4'>
+                <i class="fa-brands fa-node fa-6x items-center " style="color:whitesmoke"></i>
+                <span class='text-white'>Node</span>
+              </div>
+
+              <div class='flex flex-col items-center gap-4'>
+                <i class="fa-brands fa-unity fa-6x items-center " style="color:whitesmoke"></i>
+                <span class='text-white'>Unity</span>
+              </div>
+
+              <div class='flex flex-col items-center gap-4'>
+                <i class="fa-brands fa-linode fa-6x items-center " style="color:whitesmoke"></i>
+                <span class='text-white'>Linode</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- experience -->
+    <div id="experience" class="bg-white">
+      <div class="container p-20 mx-auto">
+        <h1 class="text-4xl my-8 text-center font-bold">Technical Journey</h1>
+        <ol class="relative border-l border-gray-200 dark:border-gray-700 js-show-on-scroll">
+          <li class="mb-10 ml-6">
+            <span
+              class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+              <svg aria-hidden="true" class="w-3 h-3 text-blue-600 dark:text-blue-400" fill="currentColor"
+                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </span>
+            <span
+              class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white dark:ring-sky-900 dark:bg-sky-900">
+              <i class="fa-solid fa-suitcase text-white/80"></i>
+            </span>
+            <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-sky-900">8bit Global</h3>
+            <h6 class="mb-1 text-md font-semibold text-gray-900 dark:text-sky-900">Front End Software Engineer</h6>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2021 -
+              Present</time>
+            <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+              Built mobile applications with Flutter from scratch. Handled the users related usecases and intergrated In
+              app purcahses for both Apple and Android.
+            </p>
+          </li>
+          <li class="mb-10 ml-6">
+            <span
+              class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white dark:ring-sky-900 dark:bg-sky-900">
+              <i class="fa-solid fa-suitcase text-white/80"></i>
+            </span>
+            <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-sky-900">Novade Solutions </h3>
+            <h6 class="mb-1 text-md font-semibold text-gray-900 dark:text-sky-900">Software Engineer</h6>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2020 -
+              2021</time>
+            <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+              Built and maintain features for the Novade Application. Integral in spearheading features that is still
+              being used by prominent organizations such as HDB and Capitaland.
+            </p>
+          </li>
+          <li class="mb-10 ml-6">
+            <span
+              class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white dark:ring-sky-900 dark:bg-sky-900">
+              <i class="fa-solid fa-suitcase text-white/80"></i>
+            </span>
+            <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-sky-900">Sopra Steria Asia </h3>
+            <h6 class="mb-1 text-md font-semibold text-gray-900 dark:text-sky-900">Java Developer</h6>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2019 -
+              2020</time>
+            <p class="text-base font-normal text-gray-500 dark:text-gray-400">Built and finished client (Ministry of
+              Manpower) project with
+              Spring Boot, React, Redhat Linux, Jboss, Node Js as the only software engineer in the team.</p>
+          </li>
+
+          <li class="mb-10 ml-6">
+            <span
+              class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white dark:ring-sky-900 dark:bg-sky-900">
+              <i class="fa-solid fa-graduation-cap text-white/80"></i> </span>
+            <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-sky-900">
+              Bachelor of Computer Science (multimedia and game development) </h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2019</time>
+            <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+              University of Wollongong.</p>
+          </li>
+
+          <li class="mb-10 ml-6">
+            <span
+              class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white dark:ring-green-900 dark:bg-green-900">
+            </span>
+            <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">Start</h3>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div id="side" class="bg-white">
+      <div class="flex flex-col gap-4 items-center p-20">
+        <h1 class="text-4xl text-black font-bold border-b-2 pb-4">SIDE PROJECTS</h1>
+        <div class="flex flex-col gap-4 items-center flex-1 mt-12">
+
+          <div class="group relative w-96">
+            <img class="w-full object-cover"
+              src="https://play-lh.googleusercontent.com/LtHrn-5lBGQo2GtDRhG6ntEiPSehUIeAaKP8u0Ew7qJtVV0V7nB5XEkva8gsncvKmw=w2560-h1440-rw" />
+            <div
+              class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-sky-900/80 opacity-0 group-hover:h-full group-hover:opacity-100 duration-500">
+              <a class="mt-5 px-8 py-3 rounded-full bg-amber-600 hover:bg-amber-700 duration-300 text-white"
+                href="#">View
+                Project</a>
+            </div>
+          </div>
+
+          <h1 class="text-2xl font-bold">Box ninja</h1>
+          <div class="text-gray-400 text-center w-96 px-8 md:px-2">
+            This is a simple app game that uses physics and Box 2D
+            <p>
+
+              I created the project from scratch using Java and a light open gl library because I like to do things from
+              scratch to understand the inner workings of things.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <footer class=" bg-sky-900 px-20 py-10">
+      <div class="flex justify-between space-x-12 md:space-x-4">
+        <a href="#marcus">
+          <h2 class="text-white text-2xl font-semibold hover:text-amber-500 transition duration-300">Marcus Ee</h2>
+        </a>
+        <div class="flex gap-12 justify-center py-2">
+          <a href="mailto:marcuseecl@gmail.com">
+            <i class="fa-solid fa-envelope fa-xl text-white hover:text-amber-500 transition duration-300"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/marcus-ee-59967417a/">
+            <i class="fa-brands fa-linkedin fa-xl text-white hover:text-amber-500 transition duration-300"></i>
+          </a>
+          <a href="https://github.com/marcusee/">
+            <i class="fa-brands fa-github fa-xl text-white hover:text-amber-500 transition duration-300"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </main>
 </body>
+<!-- mobile menu interactions -->
+<script>
+  const btn = document.querySelector("button.mobile-menu-button");
+  const menu = document.querySelector(".mobile-menu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>
+
+<!-- fade in animations -->
+<script defer>
+
+  // Callback for IntersectionObserver
+  const callback = function (entries) {
+    entries.forEach(entry => {
+
+      // Is the element in the viewport?
+      if (entry.isIntersecting) {
+
+        // Add the fadeIn class:
+        entry.target.classList.add("motion-safe:animate-fadeIn");
+      }
+    });
+  };
+
+  // Get all the elements you want to show on scroll
+  const targets = document.querySelectorAll(".js-show-on-scroll");
+
+  // Set up a new observer
+  const observer = new IntersectionObserver(callback);
+
+  // Loop through each of the target
+  targets.forEach(function (target) {
+    // Hide the element
+    target.classList.add("opacity-0");
+
+    // Add the element to the watcher
+    observer.observe(target);
+  });
+
+
+</script>
+
+<!-- Make the nav bar non transparent depending on y scroll -->
+<script>
+  window.onscroll = function () {
+    scrollFunction()
+  };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+      document.getElementsByTagName("nav")[0].classList.add("bg-sky-900");
+      document.getElementsByTagName("nav")[0].classList.add("shadow-lg");
+      document.getElementsByTagName("nav")[0].classList.add("motion-safe:animate-fastFadeIn");
+
+      document.getElementsByTagName("nav")[0].classList.remove("bg-transparent");
+
+    } else {
+
+      document.getElementsByTagName("nav")[0].classList.remove("bg-sky-900");
+      document.getElementsByTagName("nav")[0].classList.remove("shadow-lg");
+
+      document.getElementsByTagName("nav")[0].classList.add("bg-transparent");
+      document.getElementsByTagName("nav")[0].classList.remove("motion-safe:animate-fastFadeIn");
+
+    }
+  }
+</script>
+
 </html>
